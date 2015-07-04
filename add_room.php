@@ -47,7 +47,7 @@
           <th>School Email</th>
           <?php
             if($_SESSION["userType"] == "1"){
-              echo '<th>Remove Room</th>';
+              echo '<th>Add Room</th>';
             }
           ?>
         </tr>

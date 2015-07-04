@@ -7,13 +7,21 @@
           </div>
           <div id="lfi">
         <form name="forgotPassForm" action="" id="forgotPassForm">
-          <li>
-            <input id="username" type="text" placeholder="School E-mail" >
+          <li id="shaker">
+            <input id="username" type="text" placeholder="User name" title="School email without @farmingdale.edu" >
           </li>
           <div class="p-container">
               <input id="forgotPassBtn" type="button" value="SUBMIT" >
               <div class="clear"></div>
-              <span id="errorForgot" class="displayError hidden"></span>
+              <!--<span id="errorForgot" class="displayError hidden"></span>-->
+
+              <div id="errorDiv" class="ui-widget hidden errorDiv">
+                <div class="ui-state-error ui-corner-all">
+                  <p><span class="ui-icon ui-icon-alert"></span>
+                  <strong id="errorForgot"></strong></p>
+                </div>
+              </div>
+
           </div>
         </form>
         </div>
@@ -42,7 +50,15 @@
           <div class="p-container">
               <input id="confirmForgotPassBtn" type="button" value="SUBMIT" >
               <div class="clear"></div>
-              <span id="errorForgotConfirm" class="displayError hidden"></span>
+              <!--<span id="errorForgotConfirm" class="displayError hidden"></span>-->
+
+              <div id="errorDivConfirm" class="ui-widget hidden errorDiv">
+                <div class="ui-state-error ui-corner-all">
+                  <p><span class="ui-icon ui-icon-alert"></span>
+                  <strong id="errorForgotConfirm"></strong></p>
+                </div>
+              </div>
+
           </div>
         </form>
         </div>

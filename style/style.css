@@ -555,6 +555,14 @@ input[type="submit"]:hover{
   text-align: center;
 }
 
+#radioCtr{
+  text-align: center;
+}
+
+#radioFml{
+  margin-left: 25%;
+}
+
 .addRoom a{
 margin-top:3px;
   text-decoration: none !important;
@@ -579,5 +587,23 @@ margin-top:3px;
 }
 
 #class_status{
-  width: 90%;
+  width: 75%;
+}
+
+#secQuest{
+  width: 60%;
+}
+
+.errorDiv{
+  text-align: left;
+}
+
+.errorDiv div p span{
+  display: inline-block;
+  vertical-align: text-bottom;
+}
+
+.errorDiv div p{
+  padding: 0px;
+  margin: 5px 0px 5px 15px;
 }

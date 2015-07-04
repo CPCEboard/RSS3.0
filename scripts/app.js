@@ -1,7 +1,22 @@
+$(function() {
+    $( "#birthdate" ).datepicker({
+    	changeMonth: true,
+      	changeYear: true,
+      	dateFormat: "yy-mm-dd",
+      	minDate: new Date(1990, 1 - 1, 1),
+      	maxDate: "D"
+    });
+    $( "#username" ).tooltip();
+    $( "#class_status" ).selectmenu();
+    $( "#secQuest" ).selectmenu();    
+    $( "#begHouAppBtn" ).button();
+    //$( "#loginBtn" ).button();
+ });
+
 $(function(){ 
 	$('#loginBtn').click(function(){
 		//alert( "Success" );
-		$("#errorLogin").addClass("hidden");
+		$("#errorDiv").addClass("hidden");
 		$("#errorLogin").empty();
 		var funct = "VALUSER";
 		var username = $("#username").val();
@@ -17,7 +32,7 @@ $(function(){
 		      //console.log(data);
 		      if(data.returnCode != 0){
 		      	$("#errorLogin").append(data.message);
-		      	$("#errorLogin").removeClass("hidden");
+		      	$("#errorDiv").removeClass("hidden");
 		      }	else {
 		      	//alert(data.message);
 		      	if(data.isNew == "true"){
@@ -308,7 +323,7 @@ $(function(){
 	$('#forgotPassBtn').click(function(){
 		var funct = "CHECKUSER";
 		var username = $("#username").val();
-		$("#errorForgot").addClass("hidden");
+		$("#errorDiv").addClass("hidden");
 		$("#errorForgot").empty();
 		$.ajax({
 		    type: "POST",
@@ -319,11 +334,16 @@ $(function(){
 		      if(data.returnCode == 0){
 		      	$("#fromTable").val(data.fromTable);
 		      	$("#securityQuestion").val(data.question);
-		      	$("#forgot-pass-form").addClass("hidden");
-		      	$("#confirm-forgot-pass-form").removeClass("hidden");
+		      	//$("#forgot-pass-form").addClass("hidden");
+
+		      	$( "#forgot-pass-form" ).hide( "blind", { direction: "up" }, "slow" );
+		      	$( "#confirm-forgot-pass-form" ).show( "blind", { direction: "up" }, 1000 );
+
+		      	//$("#confirm-forgot-pass-form").removeClass("hidden");
 		      } else {
 		      	$("#errorForgot").append(data.message);
-		      	$("#errorForgot").removeClass("hidden");
+		      	$("#errorDiv").removeClass("hidden");
+		      	$( "#shaker" ).effect( "shake" );;
 		      }
 		    },error: function(data) { 
 		        //console.log(data);
@@ -339,7 +359,7 @@ $(function(){
 		var newPassword = $("#newPassword").val();
 		var confirmNewPassword = $("#confirmNewPassword").val();
 		var fromTable = $("#fromTable").val();
-		$("#errorForgotConfirm").addClass("hidden");
+		$("#errorDivConfirm").addClass("hidden");
 		$("#errorForgotConfirm").empty();
 		if(newPassword == confirmNewPassword){
 			$.ajax({
@@ -351,7 +371,7 @@ $(function(){
 			    	//console.log(data);
 			    	if(data.returnCode != 0){
 						$("#errorForgotConfirm").append(data.message);
-		      			$("#errorForgotConfirm").removeClass("hidden");
+		      			$("#errorDivConfirm").removeClass("hidden");
 			    	} else {
 			    		alert(data.message);
 			    		document.getElementById("to_login").click();
@@ -362,7 +382,7 @@ $(function(){
 			});
 		} else{
 			$("#errorForgotConfirm").append("Passwords must match");
-		    $("#errorForgotConfirm").removeClass("hidden");
+		    $("#errorDivConfirm").removeClass("hidden");
 		}
 		return false;
 	})

@@ -42,7 +42,7 @@
 
 	function validateUserLogin() {
 		$conn = getConnection();
-		$username = $_POST["username"];
+		$username = $_POST["username"]."@farmingdale.edu";
 		$password = $_POST["password"];
 
     	$sql = 'SELECT * FROM RESIDENCE_DIRECTOR WHERE email = "'.$username.'";';
@@ -153,6 +153,7 @@
 			echo json_encode($arr);
 			exit();
 		}
+
 		if($_POST["password"] != $_POST["confirmPass"]){
 			$arr = array( "returnCode" => "2", "message" => "Passwords must match" );
 			echo json_encode($arr);
@@ -392,7 +393,7 @@
 		}
 	}
 	function checkUser(){
-		$username = $_POST["username"];
+		$username = $_POST["username"]."@farmingdale.edu";
 		$conn = getConnection();
 		$sql = 'SELECT Q.`Question` FROM `STAFF` S JOIN `SECURITY_QUESTION` Q ON S.`SecurityQuestionID` = Q.`SecurityQuestionID` WHERE S.`StaffID` = (SELECT `StaffID` FROM `RESIDENCE_DIRECTOR` WHERE `Email` = "'.$username.'");';
 		$result = $conn->query($sql);
@@ -433,7 +434,7 @@
 
 	function submitNewPassword(){
 		$fromTable = $_POST["fromTable"];
-		$username = $_POST["username"];
+		$username = $_POST["username"]."@farmingdale.edu";
 		$conn = getConnection();
 		$sql = "";
 		$ID = '';

@@ -45,9 +45,9 @@
           </tr>
        
           <tr>
-			<td>Date of Birth: <span class="required">*</span></td><td><input id="birthdate" type="text" class="text" placeholder="YYYY-MM-DD"/></td>
-			<td>Gender: <span class="required">*</span></td> <td><input type="radio" name="gender" value="Male"> Male
-            <input type="radio" name="gender" value="Female"> Female </td>
+			<td>Date of Birth: <span class="required">*</span></td><td><input id="birthdate" type="text" class="text" placeholder="YYYY-MM-DD" readonly/></td>
+			<td>Gender: <span class="required">*</span></td> <td id="radioCtr"><input type="radio" name="gender" value="Male"> Male
+            <input id="radioFml" type="radio" name="gender" value="Female"> Female </td>
           </tr>
 
           <td>E-mail: <span class="required">*</span></td><td><input id="email" type="text" class="text" />@farmingdale.edu</td>
@@ -91,4 +91,12 @@
 
       </div>
       <a id="go_to_login" href="login.php" class="hidden"></a>
-<?php require 'footer.php'; ?>
+<?php 
+
+if (preg_match("/[0-9]{4}-[0-9]{2}-[0-9]{2}/", "5454-25-15")) {
+    echo "A match was found.";
+} else {
+    echo "A match was not found.";
+}
+
+require 'footer.php'; ?>
