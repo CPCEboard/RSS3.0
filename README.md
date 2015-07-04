@@ -1,2 +1,2 @@
-# RSS3.0
-Room Selection System 3.0
+# RoomSelectionSystem2.0
+New Room Selection System for web version
